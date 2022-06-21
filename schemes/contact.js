@@ -7,7 +7,10 @@ const contactSchema = Joi.object({
     .max(30)
     .required(),
   email: Joi.string()
-    .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'ua'] } })
+    .email({
+      minDomainSegments: 2,
+      tlds: { allow: ['com', 'net', 'ua'] },
+    })
     .required(),
   phone: Joi.string()
     .pattern(/^[0-9 -]+$/, 'numbers')
