@@ -1,4 +1,4 @@
-const { Contact } = require('../../models/contact');
+const contactsRegister = require('../../models/contacts');
 const updateContact = async (req, res, next) => {
   const { contactId } = req.params;
   if (!req.body) {
@@ -9,9 +9,7 @@ const updateContact = async (req, res, next) => {
     });
     return;
   }
-  const result = await Contact.findByIdAndUpdate(contactId, req.body, {
-    new: true,
-  });
+  const result = await contactsRegister.updateContact(contactId, req.body);
   if (!result) {
     res.status(404).json({
       status: 'error',

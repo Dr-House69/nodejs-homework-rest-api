@@ -1,7 +1,7 @@
-const { Contact } = require('../../models/contact');
+const contactsRegister = require('../../models/contacts');
 const getContactById = async (req, res, next) => {
   const { contactId } = req.params;
-  const contact = await Contact.findById(contactId);
+  const contact = await contactsRegister.getContactById(contactId);
 
   if (!contact) {
     res.status(404).json({
