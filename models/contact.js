@@ -31,7 +31,7 @@ const joiSchema = Joi.object({
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'ua'] } })
     .required(),
   phone: Joi.string()
-    .pattern(/^[0-9]+$/)
+    .pattern(/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/)
     .min(10)
     .max(16)
     .required(),
