@@ -1,7 +1,7 @@
-const contactsRegister = require('../../models/contacts');
+const { Contact } = require('../../models/contact');
 const removeContact = async (req, res, next) => {
   const { contactId } = req.params;
-  const result = await contactsRegister.removeContact(contactId);
+  const result = await Contact.findByIdAndRemove(contactId);
   if (!result) {
     res.status(404).json({
       status: 'error',
